@@ -1,0 +1,14 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+
+driver = webdriver.Chrome(executable_path="C:/chromedriver_win32/chromedriver.exe")
+driver.get("https://www.linkedin.com/home")
+driver.find_element(By.CLASS_NAME, value="nav__button-tertiary").click()
+driver.find_element(By.XPATH, value="/html/body/div[1]/main/form/section/div[2]/input").send_keys(
+    "%@gmail.com".format(Keys.ENTER))
+driver.find_element(By.XPATH, value="/html/body/div[1]/main/form/section/div[2]/div/input").send_keys("%password")
+driver.find_element(By.XPATH, value="/html/body/div[1]/main/form/section/button").click()
+driver.find_element(By.ID, value="first-name").send_keys("%firstName")
+driver.find_element(By.ID, value="last-name").send_keys("%lastName")
+driver.find_element(By.ID, value="join-form-submit").click()
